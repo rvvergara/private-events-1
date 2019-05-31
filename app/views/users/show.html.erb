@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Invites User</h1>
+<% @events.each do |event| %>
+<p>Title event: <%= event.titre %></p>
+<p>Information Event: <%= event.content %></p>
+<p>Location Event: <%= event.location %></p>
+<p>Date Event: <%= event.event_date %></p>
+<br>
+<%  end  %>
+

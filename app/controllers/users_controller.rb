@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @events = User.find_by(id: params[:id]).events
   end
 
   def index
