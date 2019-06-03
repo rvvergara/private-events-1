@@ -6,19 +6,19 @@ class EventsController < ApplicationController
     end
 
     def index
-
+      @events = Event.order("created_at")
     end
 
     def show
-
+      @event = Event.find_by(id: params[:id])
     end
 
     def create
         @event = current_user.events.build(events_params)
         if @event.save
-            flash[:success] = "Created event"
+            flash[:alert] = "Created event"
             redirect_to @event
-        else 
+        else
             render :new
         end
     end

@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post 'signin', to: 'users#create'
   get 'users/show'
-  root 'users#index'
+  root 'events#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

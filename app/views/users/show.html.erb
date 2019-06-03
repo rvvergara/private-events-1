@@ -1,9 +1,8 @@
-<h1>Invites User</h1>
-<% @events.each do |event| %>
-<p>Title event: <%= event.titre %></p>
+
+<% @event.each do |event| %>
+<h1><%= event.titre %></h1>
 <p>Information Event: <%= event.content %></p>
 <p>Location Event: <%= event.location %></p>
 <p>Date Event: <%= event.event_date %></p>
 <br>
 <%  end  %>
-
