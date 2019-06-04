@@ -7,6 +7,8 @@ class EventsController < ApplicationController
 
     def index
       @events = Event.order("created_at")
+      @past_events = Event.past
+      @coming_events = Event.coming
     end
 
     def show
@@ -22,6 +24,14 @@ class EventsController < ApplicationController
         else
             render :new
         end
+    end
+
+    def past
+      Event.where("event_date < ?", Time.now.strftime("%Y-%m-%d") ).order(event_date: :desc)
+    end
+
+    def coming
+      Event.where("event_date > ?", Time.now.strftime("%Y-%m-%d") ).order(event_date: :asc)
     end
 
 
