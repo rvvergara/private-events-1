@@ -1,7 +1,14 @@
 
-<h1>Invites User</h1>
-<p>Title event: <%= @event.titre %></p>
+<h1><%= @event.titre %></h1>
 <p>Information Event: <%= @event.content %></p>
 <p>Location Event: <%= @event.location %></p>
 <p>Date Event: <%= @event.event_date %></p>
 <p>Creator: <%= @event.creator.name %></p>
+
+<h1>Attendees</h1>
+
+<% @attendances.each do |attendance|  %>
+
+<p><%= attendance.name %> </p>
+
+<% end %>

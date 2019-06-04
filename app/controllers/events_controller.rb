@@ -10,8 +10,8 @@ class EventsController < ApplicationController
     end
 
     def show
-      @event = Event.find_by(id: params[:id])}
-      @attendance = Attendance.new
+      @event = Event.find_by(id: params[:id])
+      @attendances = @event.attendees
     end
 
     def create
