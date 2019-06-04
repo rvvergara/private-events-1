@@ -1,11 +1,18 @@
 <h3>Name: <%= @user.name %></h3>
 
-<h1>Previous Events</h1>
+
+<h1>Events User</h1>
+
+<% @events_user.each do |event| %>
+    <p> <%= event.titre %> </p>
+<% end %>
+
+<h2>Previous Events</h2>
 <% @prev_events.each do |event| %>
 <p><%= event.titre %></p>
 <% end %>
 
-<h1>Upcoming Events</h1>
+<h2>Upcoming Events</h2>
 <% @upcoming_events.each do |event| %>
 <p><%= event.titre %></p>
 <% end %>

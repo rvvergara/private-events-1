@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+ 
+
   def new
     @user = User.new
   end
@@ -11,6 +13,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @events_user = @user.events
     @attended_events = @user.attended_events
     @upcoming_events = @user.upcoming_events
     @prev_events = @user.previous_events
@@ -25,5 +28,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name)
   end
+
+  
 
 end
