@@ -12,3 +12,21 @@
 <p><%= attendance.name %> </p>
 
 <% end %>
+
+<%  if current_user == @creator_event%>
+
+<h1>invite</h1>
+
+
+
+<%= form_for(@invitation, url: attendances_path) do |f| %>
+<%= f.label :attendee_id %>
+<%= f.collection_select(:attendee_id, @not_invated, :id, :name) %>
+<%= f.hidden_field :attended_event_id, value: params[:id] %> 
+<%= f.submit "Invite to Event" %>
+
+<% end  %>
+
+
+<% end %>
+

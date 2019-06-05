@@ -13,13 +13,17 @@ class EventsController < ApplicationController
 
     def show
       @event = Event.find_by(id: params[:id])
+      @creator_event = @event.creator
       @attendances = @event.attendees
+      @invitation =  Attendance.new
+      @not_invated = User.where.not(id: @event.attendees)
 
     end
 
     def create
         @event = current_user.events.build(events_params)
         if @event.save
+            Attendance.create(attendee_id: current_user.id, attended_event_id: @event.id)
             flash[:alert] = "Created event"
             redirect_to @event
         else
