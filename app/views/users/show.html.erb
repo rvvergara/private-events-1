@@ -1,18 +1,33 @@
-<h3>Name: <%= @user.name %></h3>
+
+<div class="container-fluid">
+    <h3>Hi <%= @user.name %> !</h3>
+
+<div class="list-group">
+  <a class="list-group-item list-group-item-action active">
+    User Event
+  </a>
+  <% @events_user.each do |event| %>
+    <%= link_to event.titre, event, class: "list-group-item list-group-item-action" %>
+  <% end %>
+</div>
+
+<div class="list-group">
+  <a class="list-group-item list-group-item-action active">
+    Previous Events
+  </a>
+  <% @prev_events.each do |event| %>
+     <%= link_to event.titre, event, class: "list-group-item list-group-item-action" %>
+  <% end %>
+</div>
+
+<div class="list-group">
+  <a class="list-group-item list-group-item-action active">
+    upcoming Events
+  </a>
+  <% @upcoming_events.each do |event| %>
+    <%= link_to event.titre, event, class: "list-group-item list-group-item-action" %>
+  <% end %>
+</div>
 
 
-<h1>Events User</h1>
-
-<% @events_user.each do |event| %>
-    <p> <%= event.titre %> </p>
-<% end %>
-
-<h2>Previous Events</h2>
-<% @prev_events.each do |event| %>
-<p><%= event.titre %></p>
-<% end %>
-
-<h2>Upcoming Events</h2>
-<% @upcoming_events.each do |event| %>
-<p><%= event.titre %></p>
-<% end %>
+</div>

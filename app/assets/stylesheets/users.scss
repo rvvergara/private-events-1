@@ -1,3 +1,27 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container-fluid {
+    margin-top: 100px;
+}
+h1 {
+    color: red;
+  }
+
+
+  
+
+  .bg-image {
+    background-image: image-url("bg-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 580px;
+  }
+
+  .bg-login {
+    margin-top: 150px;
+    background-color: rgba(22, 77, 228, 0.7);
+    color: #ffffff;
+  }

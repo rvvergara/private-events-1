@@ -1,14 +1,21 @@
-<h1>Upcoming Events</h1>
 
 
-<% @upcoming.each do |event| %>
-<p><%= event.titre %></p>
+<div class="container-fluid">
+  <div class="list-group">
+    <a class="list-group-item list-group-item-action active">
+      Upcoming Events
+    </a>
+    <% @upcoming.each do |event| %>
+      <%= link_to event.titre, event, class: "list-group-item list-group-item-action" %>
+    <% end %>
+  </div>
 
-<% end %>
-
-<h1>Past Events</h1>
-
-<% @past_events.each do |event| %>
-<p><%= event.titre %></p>
-
-<% end %>
+  <div class="list-group">
+    <a class="list-group-item list-group-item-action active">
+      Past Events
+    </a>
+    <% @past_events.each do |event| %>
+       <%= link_to event.titre, event, class: "list-group-item list-group-item-action" %>
+    <% end %>
+  </div>
+</div>
