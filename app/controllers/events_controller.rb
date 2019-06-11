@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-    before_action :logged_in_user, only: [:new, :create, :index]
+    before_action :logged_in_user, only: [:new, :create, :index, :destroy]
 
     def new
         @event = Event.new
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
       @creator_event = @event.creator
       @attendances = @event.attendees
       @invitation =  Attendance.new
-      @not_invated = User.where.not(id: @event.attendees)
+      @not_invited = User.where.not(id: @event.attendees).map { |u| [ u.name, u.id ] }
 
     end
 
@@ -29,6 +29,16 @@ class EventsController < ApplicationController
         else
             render :new
         end
+    end
+
+    def destroy 
+      @event = Event.find(params[:id])
+      if @event.destroy
+        flash[:alert] = "Event Deleted"
+        redirect_to root_path 
+      else
+        redirect_to @event
+      end
     end
 
   
